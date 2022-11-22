@@ -1,10 +1,3 @@
-/*Create a class which stores account number, customer name and balance. Derive
-two classes from ‘Account’ class: ‘Savings’ and ‘Current’. The ‘Savings’ class stores minimum
-balance. The ‘Current’ class stores the over-due amount. Include member functions in the
-appropriate class for -deposit money -withdraw [For saving account minimum balance
-should be checked.] [For current account overdue amount should be calculated.] -display
-balance Display data from each class using virtual function.*/
-
 #include <iostream>
 #include <string>
 using namespace std;
@@ -100,27 +93,28 @@ class Current : public Account
 template <typename T>
 T GetMax (T a, T b) 
 {
-  T result;
-  result = (a>b)? a : b;
-  return (result);
+    T result;
+    result = (a>b)? a : b;
+    return (result);
 }
+
 int main()
 {
-    int ch;
+    int choose;
     Savings s;
     Current c;
     Account *a;
     cout<<"1.Savings \n2.Current \nEnter your choice : ";
-    cin>>ch;
-    switch (ch)
+    cin>>choose;
+    switch (choose)
     {
         case 1: 
             a=&s;
             a->get_data();
             a->display();
             cout<<"\n1.Deposit \n2.Withdraw \nEnter your choice : ";
-            cin>>ch;
-            switch(ch)
+            cin>>choose;
+            switch(choose)
             {
                 case 1: a->deposit(); break;
                 case 2: a->check(); break;
@@ -132,8 +126,8 @@ int main()
             a->get_data();
             a->display();
             cout<<"1.Deposit \n2.Withdraw \nEnter your choice : ";
-            cin>>ch;
-            switch(ch)
+            cin>>choose;
+            switch(choose)
             {
                 case 1: a->deposit(); break;
                 case 2: a->calc(); break;
@@ -149,5 +143,23 @@ int main()
     n=GetMax<long>(l,m);
     cout << k << endl;
     cout << n << endl;
+    
+    FILE* ptr;
+    char ch;
+ 
+    ptr = fopen("my_file.txt", "r");
+ 
+    if (NULL == ptr) 
+    {
+        cout<<"file can't be opened \n";
+    }
+    cout<<"content of this file are \n";
+    do 
+    {
+        ch = fgetc(ptr);
+        cout<<ch;
+    } while (ch != -1);
+    fclose(ptr);
+    
    return 0;
 }
