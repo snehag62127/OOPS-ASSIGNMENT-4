@@ -14,7 +14,6 @@ class Account
             cout<<"Enter details : ";
             cout<<"\nAccount Number : ";
             cin>>accno;
-            cin.ignore();
             cout<<"Name : ";
             getline(name);
             cout<<"Balance : ";
