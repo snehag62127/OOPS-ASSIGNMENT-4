@@ -16,7 +16,7 @@ class Account
             cin>>accno;
             cin.ignore();
             cout<<"Name : ";
-            getline(cin,name);
+            getline(name);
             cout<<"Balance : ";
             cin>>balance;
         }
